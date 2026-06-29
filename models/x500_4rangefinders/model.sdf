@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdf version='1.9'>
+  <model name='x500_4rangefinders'>
+    <include merge='true'>
+      <uri>x500</uri>
+    </include>
+
+    <!-- ======================== -->
+    <!-- FRONT rangefinder (+X)   -->
+    <!-- ======================== -->
+    <link name="rangefinder_front_link">
+      <pose relative_to="base_link">0.15 0 0.01 0 0 0</pose>
+      <inertial>
+        <mass>0.02</mass>
+        <inertia>
+          <ixx>0.000004</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000004</iyy>
+          <iyz>0</iyz>
+          <izz>0.000002</izz>
+        </inertia>
+      </inertial>
+      <visual name="rangefinder_front_visual">
+        <geometry>
+          <box>
+            <size>0.03 0.02 0.043</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.2 0.2 0.2 1</ambient>
+          <diffuse>0.3 0.3 0.3 1</diffuse>
+        </material>
+      </visual>
+      <collision name="rangefinder_front_collision">
+        <geometry>
+          <box>
+            <size>0.03 0.02 0.043</size>
+          </box>
+        </geometry>
+      </collision>
+      <sensor name="rangefinder_front" type="gpu_lidar">
+        <pose>0 0 0 0 0 0</pose>
+        <update_rate>50</update_rate>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>0</min_angle>
+              <max_angle>0</max_angle>
+            </horizontal>
+            <vertical>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>0</min_angle>
+              <max_angle>0</max_angle>
+            </vertical>
+          </scan>
+          <range>
+            <min>0.1</min>
+            <max>100.0</max>
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+        <always_on>1</always_on>
+        <visualize>true</visualize>
+      </sensor>
+    </link>
+    <joint name="rangefinder_front_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>rangefinder_front_link</child>
+    </joint>
+
+    <!-- ======================== -->
+    <!-- BACK rangefinder (-X)    -->
+    <!-- ======================== -->
+    <link name="rangefinder_back_link">
+      <pose relative_to="base_link">-0.15 0 0.01 0 0 3.14159</pose>
+      <inertial>
+        <mass>0.02</mass>
+        <inertia>
+          <ixx>0.000004</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000004</iyy>
+          <iyz>0</iyz>
+          <izz>0.000002</izz>
+        </inertia>
+      </inertial>
+      <visual name="rangefinder_back_visual">
+        <geometry>
+          <box>
+            <size>0.03 0.02 0.043</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.2 0.2 0.2 1</ambient>
+          <diffuse>0.3 0.3 0.3 1</diffuse>
+        </material>
+      </visual>
+      <collision name="rangefinder_back_collision">
+        <geometry>
+          <box>
+            <size>0.03 0.02 0.043</size>
+          </box>
+        </geometry>
+      </collision>
+      <sensor name="rangefinder_back" type="gpu_lidar">
+        <pose>0 0 0 0 0 0</pose>
+        <update_rate>50</update_rate>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>0</min_angle>
+              <max_angle>0</max_angle>
+            </horizontal>
+            <vertical>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>0</min_angle>
+              <max_angle>0</max_angle>
+            </vertical>
+          </scan>
+          <range>
+            <min>0.1</min>
+            <max>100.0</max>
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+        <always_on>1</always_on>
+        <visualize>true</visualize>
+      </sensor>
+    </link>
+    <joint name="rangefinder_back_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>rangefinder_back_link</child>
+    </joint>
+
+    <!-- ======================== -->
+    <!-- LEFT rangefinder (+Y)    -->
+    <!-- ======================== -->
+    <link name="rangefinder_left_link">
+      <pose relative_to="base_link">0 0.15 0.01 0 0 1.5708</pose>
+      <inertial>
+        <mass>0.02</mass>
+        <inertia>
+          <ixx>0.000004</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000004</iyy>
+          <iyz>0</iyz>
+          <izz>0.000002</izz>
+        </inertia>
+      </inertial>
+      <visual name="rangefinder_left_visual">
+        <geometry>
+          <box>
+            <size>0.03 0.02 0.043</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.2 0.2 0.2 1</ambient>
+          <diffuse>0.3 0.3 0.3 1</diffuse>
+        </material>
+      </visual>
+      <collision name="rangefinder_left_collision">
+        <geometry>
+          <box>
+            <size>0.03 0.02 0.043</size>
+          </box>
+        </geometry>
+      </collision>
+      <sensor name="rangefinder_left" type="gpu_lidar">
+        <pose>0 0 0 0 0 0</pose>
+        <update_rate>50</update_rate>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>0</min_angle>
+              <max_angle>0</max_angle>
+            </horizontal>
+            <vertical>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>0</min_angle>
+              <max_angle>0</max_angle>
+            </vertical>
+          </scan>
+          <range>
+            <min>0.1</min>
+            <max>100.0</max>
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+        <always_on>1</always_on>
+        <visualize>true</visualize>
+      </sensor>
+    </link>
+    <joint name="rangefinder_left_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>rangefinder_left_link</child>
+    </joint>
+
+    <!-- ======================== -->
+    <!-- RIGHT rangefinder (-Y)   -->
+    <!-- ======================== -->
+    <link name="rangefinder_right_link">
+      <pose relative_to="base_link">0 -0.15 0.01 0 0 -1.5708</pose>
+      <inertial>
+        <mass>0.02</mass>
+        <inertia>
+          <ixx>0.000004</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000004</iyy>
+          <iyz>0</iyz>
+          <izz>0.000002</izz>
+        </inertia>
+      </inertial>
+      <visual name="rangefinder_right_visual">
+        <geometry>
+          <box>
+            <size>0.03 0.02 0.043</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.2 0.2 0.2 1</ambient>
+          <diffuse>0.3 0.3 0.3 1</diffuse>
+        </material>
+      </visual>
+      <collision name="rangefinder_right_collision">
+        <geometry>
+          <box>
+            <size>0.03 0.02 0.043</size>
+          </box>
+        </geometry>
+      </collision>
+      <sensor name="rangefinder_right" type="gpu_lidar">
+        <pose>0 0 0 0 0 0</pose>
+        <update_rate>50</update_rate>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>0</min_angle>
+              <max_angle>0</max_angle>
+            </horizontal>
+            <vertical>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>0</min_angle>
+              <max_angle>0</max_angle>
+            </vertical>
+          </scan>
+          <range>
+            <min>0.1</min>
+            <max>100.0</max>
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+        <always_on>1</always_on>
+        <visualize>true</visualize>
+      </sensor>
+    </link>
+    <joint name="rangefinder_right_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>rangefinder_right_link</child>
+    </joint>
+
+  </model>
+</sdf>
